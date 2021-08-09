@@ -1,9 +1,9 @@
 import { Router } from 'express';
+import { userController } from '../controllers/userController.js';
+
 var router = Router();
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource');
-});
+router.get('/', userController);
 
 export default router;
