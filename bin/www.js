@@ -1,12 +1,17 @@
 #!/usr/bin/env node
+/* eslint-disable no-undef */
 
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
+import app from '../app.js';
+import { createServer } from 'http';
+
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 var debug = require('debug')('inventory:server');
-var http = require('http');
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +24,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
