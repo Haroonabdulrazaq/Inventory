@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import createError from 'http-errors';
 import express from 'express';
-// import { join, dirname } from "path";
+import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 import { join, dirname } from 'path';
 
@@ -21,12 +21,27 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+
+// Middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, 'public')));
 
+// Database Connection
+var dev_db_url ='mongodb+srv://Haroon:haroon123@cluster0.zthwt.mongodb.net/Car_Deal?retryWrites=true&w=majority'
+var mongoDB = dev_db_url; // process.env.MONGODB_URI ||
+mongoose
+  .connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(()=> console.log("Database Connected"))
+  .catch((err)=> console.log("Database Error", err))
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+// Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
