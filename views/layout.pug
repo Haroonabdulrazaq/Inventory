@@ -4,7 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     //- link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
-    
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   body
     block script
     //- script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
@@ -13,6 +13,10 @@ html
     .sidebar
       a.active(href='/catalog') CAR DEAL
       a(href='/catalog') Home
+        i.fa.fa-fw.fa-home
       a(href='/catalog/categories') Categories
+        i.fa.fa-check-square
       a(href='/catalog/category/create') Add Category
+        i.fa.fa-plus-square
       a(href='#') About
+        i.fa.fa-plus-square

@@ -7,7 +7,7 @@ body {
   margin: 0px;
   display: flex;
   flex-direction: row-reverse;
-  /* border: 3px solid green; */
+  border: 3px solid green;
 }
 
 a {
@@ -56,6 +56,11 @@ div.content {
   height: auto;
 }
 
+i {
+font-weight: bolder;  
+  padding: 5px;
+}
+
 @media screen and (max-width: 700px) {
   body {
     flex-direction: column-reverse;
@@ -64,7 +69,8 @@ div.content {
     width: 100%;
     height: auto;
   }
-  /* .sidebar a {float: left;} */
+ /* .sidebar a {float: left;
+ padding: 16px 5px;} */
   /* div.content {margin-left: 0;} */
 }
 
@@ -73,7 +79,6 @@ div.content {
     text-align: center;
     float: none;
   }
-
 }
 
 
@@ -108,4 +113,11 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: white;
   padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+.container .form {
+  text-align: left;
+  width: 50%;
+  margin: 0 auto;
 }

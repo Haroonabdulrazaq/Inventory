@@ -2,7 +2,7 @@ extends layout
 block content
   .container
     h3= title
-    form(action='')
+    form.form(method='POST' action='')
       label(for='name') Category Name
       input#name(type='text' name='name' placeholder='Category name..')
       label(for='description') Description
