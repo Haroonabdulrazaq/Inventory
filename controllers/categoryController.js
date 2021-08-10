@@ -14,7 +14,7 @@ const categoryDetail = (req, res) => {
 }
 
 const categoryCreateGet = (req, res) => {
-    res.send('Category Create Get')
+    res.render('categoryForm', {title:'Add Category'})
 }
 
 const categoryCreatePost = (req, res) => {
