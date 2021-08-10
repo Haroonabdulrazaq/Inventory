@@ -2,8 +2,11 @@
 import createError from 'http-errors';
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
 import { fileURLToPath } from 'url';
 import { join, dirname } from 'path';
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,7 +33,7 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname, 'public')));
 
 // Database Connection
-var dev_db_url ='mongodb+srv://Haroon:haroon123@cluster0.zthwt.mongodb.net/Car_Deal?retryWrites=true&w=majority'
+var dev_db_url = process.env.MONGODB_URL;
 var mongoDB = dev_db_url; // process.env.MONGODB_URI ||
 mongoose
   .connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})

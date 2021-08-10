@@ -6,7 +6,7 @@ const catalogController = (req, res) => {
 }
 
 const categoryList = (req, res) => {
-    res.send('Category Index')
+    res.render('categoryIndex',{text: 'Category Index'})
 }
 
 const categoryDetail = (req, res) => {
