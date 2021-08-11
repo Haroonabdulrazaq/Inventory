@@ -1,10 +1,10 @@
 extends layout 
 block content
   .container
-    h3= title
+    h1= title
     form.form(method='POST' action='')
       label(for='name') Category Name
-      input#name(type='text' name='name' placeholder='Category name..')
+      input#name(type='text' name='name' placeholder='Category name..' required)
       label(for='description') Description
       textarea#description(name='description' placeholder='Description' style='height:200px')
       input(type='submit' value='Submit')

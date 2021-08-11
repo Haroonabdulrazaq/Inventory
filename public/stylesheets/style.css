@@ -7,7 +7,6 @@ body {
   margin: 0px;
   display: flex;
   flex-direction: row-reverse;
-  border: 3px solid green;
 }
 
 a {
@@ -19,10 +18,8 @@ a {
   padding: 0;
   width: 30%;
   background-color: #f1f1f1;
-  /* position: fixed; */
   height: 99vh;
   overflow: auto;
-  /* border: 4px solid violet; */
 }
 
 .sidebar a {
@@ -35,12 +32,10 @@ a {
  
 .sidebar a.active {
   background-color: #04AA6D;
-  box-shadow: 1px 2px 5px #333;
   font-size: 20px;
   font-weight:bolder;
   letter-spacing: 2.0px;
   text-align: center;
-  /* padding: 20px 0; */
   color: white;
 }
 
@@ -51,7 +46,7 @@ a {
 
 div.content {
   padding: 1px 16px;
-  width: 70%;
+  width: 100%;
   min-height: 100vh;
   height: auto;
 }
