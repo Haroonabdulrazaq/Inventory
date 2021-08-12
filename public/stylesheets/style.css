@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
 }
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 0px;
@@ -10,7 +14,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #45a049;
+  /* color: #00B7FF; */
+  text-decoration: none;
 }
 
 .sidebar {
@@ -18,14 +24,15 @@ a {
   padding: 0;
   width: 30%;
   background-color: #f1f1f1;
-  height: 99vh;
+  height: auto;
   overflow: auto;
 }
 
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
+  font-size: 1.2em;
+  padding: 16px 10px;
   text-align: center;
   text-decoration: none;
 }

@@ -6,12 +6,23 @@ const catalogController = (req, res) => {
   res.render('catalog', {title: 'Hello catalog Controller'});
 }
 
-const categoryList = (req, res) => {
-  res.render('categoryIndex',{text: 'Category Index'})
+const categoryList = (req, res, next) => {
+  // res.render('categoryIndex',{text: 'Category Index'})
+  Category.find()
+    .exec(function(err, category) {
+        if (err) { return next(err) }
+        res.render('categoryIndex', { title: "All Categories", categories: category })
+    })
 }
 
-const categoryDetail = (req, res) => {
-  res.render('categoryDetail', {title: "Category Detail"});
+const categoryDetail = (req, res, next) => {
+  Category.findById(req.params.id)
+  .exec((err, foundCategory)=> {
+    if (err) {
+      return next(err);
+    }
+    res.render('categoryDetail', {title: "Category Detail", category: foundCategory });
+  })
 }
 
 const categoryCreateGet = (req, res) => {

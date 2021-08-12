@@ -2,4 +2,7 @@ extends layout
 
 block content
   .container
-    h2= title
+    h2.title #{title}
+    .detail-wrapper
+      h3.cat-name #{category.name}
+      div.cat-description #{category.description}
