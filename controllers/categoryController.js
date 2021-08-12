@@ -50,25 +50,23 @@ const categoryCreatePost = (req, res, next) => {
   console.log("I am in here anonymous function");
   const errors = validationResult(req);
 
+  const category = new Category({
+    name: req.body.name,
+    description: req.body.description
+  })
+
   if (!errors.isEmpty()) {
-    res.render('categoryForm', { title: 'Add Category', msg: 'An Error Occured', errors: errors.array() });
+    res.render('categoryForm', { title: 'Add Category', category: category, msg: 'An Error Occured', errors: errors.array() });
     return;
   } else {
-    console.log("I am searching if it already exist");
     Category.findOne({name: req.body.name})
     .exec((err, foundCategory)=> {
       if (err) {
         return next(err);
       }
       if (foundCategory) {
-        console.log("Nope It exist");
         res.redirect(foundCategory.url)
       } else {
-        console.log("I am saving right now");
-        const category = new Category({
-          name: req.body.name,
-          description: req.body.description
-        })
         category.save((err) => {
           if (err) {
             return next(err);

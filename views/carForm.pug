@@ -3,25 +3,26 @@ extends layout
 block content
   .container
     h2 #{title}
-    form.form(method='POST' action='')
+    form.form(method='POST' action='' enctype="multipart/form-data")
       label(for='name') Car Name
       input#name(type='text' name='name' placeholder='Car name..' required)
       label(for='model') Model Number / Year
-      input#price(type='number' name='model' placeholder='2021' required)
+      input#model(type='number' name='model' placeholder='2021' required)
       label(for='price') Price
       input#price(type='number' name='price' placeholder='10.58=$10.58' required)
       label(for='stock') Number In Stock
       input#stock(type='number' name='numberInStock' placeholder='50' required)
+      label(for='image') Upload Image
+      input#image(type='file' name='image' accept='image/*')
       label(for='country') Category
-      select#country(name='country')
-        option(value='Toyota') Toyota
-        option(value='Ferari') Ferari
-        option(value='Honda') Honda
+      select#category(name='category')
+        each category in categories
+          option(value=category._id) #{category.name}
       label(for='description') Description
       textarea#description(name='description' placeholder='Write something..' required style='height:200px')
       input(type='submit' value='Submit')
 
-            //- label(for='country') Category
+      //- label(for='country') Category
       //- each category in categories
       //-   select#country(name='country')
       //-     option(value=category.name) #{category.name}
