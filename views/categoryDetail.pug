@@ -3,6 +3,24 @@ extends layout
 block content
   .container
     h2.title #{title}
-    .detail-wrapper
-      h3.cat-name #{category.name}
-      div.cat-description #{category.description}
+    .detail-container
+      .detail-wrapper
+        .detail-wrapper-top
+          h3.cat-name #{category.name} 
+          div.cat-description #{category.description} 
+      .detail-links
+        .detail-parent-link
+          a.detail-link(href='/catalog/category/:id/update')
+            i.fa.fa-pencil(title="Update category")
+          p  Update
+        .detail-parent-link
+          a.detail-link(href='/catalog/category/:id/delete')
+            i.fa.fa-trash(title="Delete category")
+          p  Delete
+        .detail-parent-link
+          a.detail-link(href='/catalog/category/:id/update')
+            i.fa.fa-eye(title="See all cars")
+          p  See all cars
+
+
+//- #{category.name} 

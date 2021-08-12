@@ -7,7 +7,7 @@ const carList = (req, res) => {
 };
 
 const carDetail = (req, res) => {
-  res.send('Car Detail');
+  res.render('carDetail', { title: 'Car Detail' });
 };
 
 const carCreateGet = (req, res, next) => {
