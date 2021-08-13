@@ -4,7 +4,7 @@ block content
     h1= title
     form.form(method='POST' action='')
       label(for='name') Category Name
-      input#name(type='text' name='name' placeholder='Category name..' required)
+      input#name(type='text' name='name' value=(category===undefined? '': category.name) placeholder='Category name..' required)
       label(for='description') Description
-      textarea#description(name='description' placeholder='Description' style='height:200px')
+      textarea#description(name='description' placeholder='Description' style='height:200px') #{category===undefined? '': category.description} 
       input(type='submit' value='Submit')

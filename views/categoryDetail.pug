@@ -10,15 +10,15 @@ block content
           div.cat-description #{category.description} 
       .detail-links
         .detail-parent-link
-          a.detail-link(href='/catalog/category/:id/update')
+          a.detail-link(href=category._id+'/update')
             i.fa.fa-pencil(title="Update category")
           p  Update
         .detail-parent-link
-          a.detail-link(href='/catalog/category/:id/delete')
+          a.detail-link(href=category._id+'/delete')
             i.fa.fa-trash(title="Delete category")
           p  Delete
         .detail-parent-link
-          a.detail-link(href='/catalog/category/:id/update')
+          a.detail-link(href=category._id+'/update')
             i.fa.fa-eye(title="See all cars")
           p  See all cars
 

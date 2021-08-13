@@ -5,7 +5,7 @@ block content
     h2 #{title}
     form.form(method='POST' action='' enctype="multipart/form-data")
       label(for='name') Car Name
-      input#name(type='text' name='name' placeholder='Car name..' required)
+      input#name(type='text' name='name' value=(car === undefined ? '' : category.name) placeholder='Car name..' required)
       label(for='model') Model Number / Year
       input#model(type='number' name='model' placeholder='2021' required)
       label(for='price') Price

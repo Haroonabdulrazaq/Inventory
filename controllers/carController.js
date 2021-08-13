@@ -22,7 +22,7 @@ const carCreateGet = (req, res, next) => {
     })
 };
 
-const carCreatePost = (req, res, next) => { 
+const carCreatePost = (req, res, next) => {
   // res.send('Car Create Post');
   body('name')
     .isLength({min: 3, max: 25}).withMessage('Name should be greater than 3 and lass than 25')
@@ -72,7 +72,7 @@ const carCreatePost = (req, res, next) => {
 };
 
 const carUpdateGet = (req, res) => {
-  res.send('Car Update Get');
+  res.render('CarForm', {title: 'Update Car Detail'});
 };
 
 const carUpdatePost = (req, res) => {

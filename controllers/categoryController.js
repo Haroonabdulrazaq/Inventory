@@ -79,20 +79,27 @@ const categoryCreatePost = (req, res, next) => {
 
 }
 
+const categoryUpdateGet = (req, res, next) => {
+  Category.findById(req.params.id)
+    .exec((err, foundCategory) => {
+      console.log("Found my cat", foundCategory);
+      if (err) {
+        return next(err);
+      }
+      res.render('categoryForm', { title: 'Update Category Detail', category: foundCategory });
+    })
+}
+
+const categoryUpdatePost = (req, res) => {
+  res.send('Category Update Post')
+}
+
 const categoryDeleteGet = (req, res) => {
     res.send('Category Delete Get')
 }
 
 const categoryDeletePost = (req, res) => {
     res.send('Category Delete Post')
-}
-
-const categoryUpdateGet = (req, res) => {
-    res.send('Category Update Get')
-}
-
-const categoryUpdatePost = (req, res) => {
-    res.send('Category Update Post')
 }
 
 export { catalogController, categoryList, categoryDetail,
