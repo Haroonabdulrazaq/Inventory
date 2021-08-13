@@ -133,8 +133,15 @@ const categoryDeleteGet = (req, res, next) => {
   })
 }
 
-const categoryDeletePost = (req, res) => {
-    res.send('Category Delete Post')
+const categoryDeletePost = (req, res, next) => {
+    // res.send('Category Delete Post')
+    Category.findByIdAndDelete(req.params.id)
+      .exec((err) => {
+        if (err) {
+          return next(err)
+        }
+        res.redirect('/catalog/categories')
+      })
 }
 
 export { catalogController, categoryList, categoryDetail,
