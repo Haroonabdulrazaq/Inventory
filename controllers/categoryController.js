@@ -1,13 +1,13 @@
 import { body, validationResult } from 'express-validator';
-// import async from 'async';
+import async from 'async';
 import { Category } from "../models/category.model.js";
+import { Car } from "../models/car.model.js";
 
 const catalogController = (req, res) => {
   res.render('catalog', {title: 'Hello catalog Controller'});
 }
 
 const categoryList = (req, res, next) => {
-  // res.render('categoryIndex',{text: 'Category Index'})
   Category.find()
     .exec(function(err, category) {
         if (err) { return next(err) }
@@ -29,11 +29,6 @@ const categoryCreateGet = (req, res) => {
   res.render('categoryForm', {title:'Add Category'})
 }
 
-// const categoryCreatePost = (req, res) => {
-//   res.send('Testing Category Post');
-// }
-
-// eslint-disable-next-line no-unused-vars
 const categoryCreatePost = (req, res, next) => {
   console.log(req.body),
   body('name')
@@ -76,7 +71,6 @@ const categoryCreatePost = (req, res, next) => {
       }
     })
   }
-
 }
 
 const categoryUpdateGet = (req, res, next) => {
@@ -90,12 +84,53 @@ const categoryUpdateGet = (req, res, next) => {
     })
 }
 
-const categoryUpdatePost = (req, res) => {
-  res.send('Category Update Post')
+const categoryUpdatePost = (req, res, next) => {
+  body('name')
+  .isLength({ min: 3, max: 20 })
+  .trim()
+  .escape()
+  .required
+  body('description')
+  .isLength({ min: 10, max: 255 })
+  .trim()
+  .escape()
+  .required
+
+  const errors = validationResult(req);
+
+  const category = new Category ({
+    _id: req.params.id,
+    name: req.body.name,
+    description: req.body.description
+  })
+
+  if (!errors.isEmpty()) {
+    res.render('categoryForm', { title: 'Update Category', category, errors: errors.array() });
+    return;
+  }
+
+  Category.findByIdAndUpdate(req.params.id, category, {}, (err, foundCategory) => {
+      if (err) { return next(err) }
+      res.redirect(foundCategory.url)
+  })
 }
 
-const categoryDeleteGet = (req, res) => {
-    res.send('Category Delete Get')
+const categoryDeleteGet = (req, res, next) => {
+  // res.send('Category Delete Get')
+  async.parallel({
+    category: (callback) => {
+      Category.findById(req.params.id)
+      .exec(callback)
+    },
+    categoryCars: (callback) => {
+      Car.find({ category: req.params.id })
+      .exec(callback)
+    }
+  }, (err, results) => {
+      console.log("Category Delete", results)
+      if (err) { return next(err) }
+      res.render('categoryDelete', { title: 'Delete Category', category: results.category, categoryCars: results.categoryCars })
+  })
 }
 
 const categoryDeletePost = (req, res) => {

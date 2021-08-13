@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+  .container
+    h2 #{title}
+    if categoryCars.length
+      p  #[strong You have to delete all these cars in order to delete it's category]
+      each car in categoryCars
+        p
+          a(href=car.url) #{car.name}
+          p #{car.description}
+    else
+      p Do you really want to Delete this category?
+      form(method='POST', action='')
+        input(type='hidden')
+        input(type='submit' value='Delete' style='background: red')
