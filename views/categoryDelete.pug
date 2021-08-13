@@ -6,11 +6,16 @@ block content
     if categoryCars.length
       p  #[strong You have to delete all these cars in order to delete it's category]
       each car in categoryCars
-        p
+        .list-cars
           a(href=car.url) #{car.name}
           p #{car.description}
     else
-      p Do you really want to Delete this category?
-      form(method='POST', action='')
-        input(type='hidden')
-        input(type='submit' value='Delete' style='background: red')
+      .delete-category
+        p Do you really want to Delete #[strong #{category.name}] category?
+        form(method='POST', action='')
+          input(type='hidden')
+          .delete-btn
+            input(type='submit' value='Delete' style='background: red')
+            span.cancel
+              a.active(href=category.url) Cancel
+            

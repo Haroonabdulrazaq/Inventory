@@ -6,11 +6,12 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   padding: 0px;
   margin: 0px;
   display: flex;
   flex-direction: row-reverse;
+  font-family: 'Miriam Libre', sans-serif;
 }
 
 a {
@@ -99,7 +100,7 @@ input[type=text], textarea {
   resize: vertical;
 }
 
-input[type=submit] {
+input[type=submit], input[type=reset] {
   background-color: #04AA6D;
   color: white;
   padding: 12px 20px;

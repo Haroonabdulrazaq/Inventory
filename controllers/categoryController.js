@@ -30,7 +30,6 @@ const categoryCreateGet = (req, res) => {
 }
 
 const categoryCreatePost = (req, res, next) => {
-  console.log(req.body),
   body('name')
   .isLength({ min: 3, max: 20 })
   .trim()
@@ -42,7 +41,6 @@ const categoryCreatePost = (req, res, next) => {
   .escape()
   .required
 
-  console.log("I am in here anonymous function");
   const errors = validationResult(req);
 
   const category = new Category({
@@ -76,11 +74,10 @@ const categoryCreatePost = (req, res, next) => {
 const categoryUpdateGet = (req, res, next) => {
   Category.findById(req.params.id)
     .exec((err, foundCategory) => {
-      console.log("Found my cat", foundCategory);
       if (err) {
         return next(err);
       }
-      res.render('categoryForm', { title: 'Update Category Detail', category: foundCategory });
+      res.render('categoryForm', { title: 'Update Category', category: foundCategory });
     })
 }
 
@@ -127,7 +124,6 @@ const categoryDeleteGet = (req, res, next) => {
       .exec(callback)
     }
   }, (err, results) => {
-      console.log("Category Delete", results)
       if (err) { return next(err) }
       res.render('categoryDelete', { title: 'Delete Category', category: results.category, categoryCars: results.categoryCars })
   })

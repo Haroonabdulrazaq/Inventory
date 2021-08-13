@@ -164,3 +164,53 @@
     flex-direction: row;
   }
 }
+
+/* Delete Category */
+
+.list-cars {
+  margin-top: 1.5em;
+  padding: 1em;
+  box-shadow: 1px 2px 5px #aaa;
+  min-height: 10vh;
+  height: auto;
+}
+
+.delete-category {
+  width: 50%;
+  min-height: 20%;
+  height: auto;
+  margin: 5em auto;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px #aaa;
+}
+
+.cancel {
+  background-color: #04AA6D;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel a {
+  color: white;
+}
+
+.delete-btn {
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 800px) {
+  .delete-category {
+    width: 70%;
+    height: 20%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .delete-category {
+    width: 80%;
+    height: 20%;
+  }
+}
