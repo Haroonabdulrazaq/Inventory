@@ -214,3 +214,50 @@
     height: 20%;
   }
 }
+
+/* Category Car List */
+
+.category-cars {
+  min-height: 100vh;
+  height: auto;
+  border: 1px solid chartreuse;
+  padding: 1.5em 0;
+}
+
+.cars-category {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 5px;
+  min-height: 50vh;
+  height: auto;
+  box-shadow: 1px 2px 5px #aaa;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cars-category div {
+  width: 50%;
+  height: 100%;
+}
+
+.cars-category div:nth-child(2) {
+  text-align: left;
+}
+
+.cars-category:hover {
+  box-shadow: 1px 2px 15px #aaa;
+  transition: all 0.8s;
+}
+
+@media screen and (max-width: 800px) {
+  .cars-category {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 80vh;
+    height: auto;
+    flex-direction: column;
+  }
+}

@@ -12,8 +12,8 @@ block content
       input#price(type='number' name='price' placeholder='10.58=$10.58' required)
       label(for='stock') Number In Stock
       input#stock(type='number' name='numberInStock' placeholder='50' required)
-      label(for='image') Upload Image
-      input#image(type='file' name='image' accept='image/*')
+      label(for='image') Upload Image url
+      input#url(type='url' name='url' placeholder='https://example.com' pattern='https://.*' size='30' required)
       label(for='country') Category
       select#category(name='category')
         each category in categories

@@ -71,6 +71,21 @@ const categoryCreatePost = (req, res, next) => {
   }
 }
 
+const categoryCarListGet =(req, res) => {
+  Car.find({ category: req.params.id })
+    .exec((err, foundCars) => {
+      console.log(foundCars);
+      if (err) {
+        throw new err;
+      }
+      res.render('categoryCarList', { title: 'All cars in this Category', cars: foundCars })
+    })
+}
+
+// const categoryCarListPost =(req, res) => {
+ 
+// }
+
 const categoryUpdateGet = (req, res, next) => {
   Category.findById(req.params.id)
     .exec((err, foundCategory) => {
@@ -141,5 +156,5 @@ const categoryDeletePost = (req, res, next) => {
 }
 
 export { catalogController, categoryList, categoryDetail,
-    categoryCreateGet, categoryCreatePost, categoryUpdateGet,
-    categoryUpdatePost, categoryDeleteGet, categoryDeletePost };
+    categoryCreateGet, categoryCreatePost, categoryCarListGet,
+    categoryUpdateGet, categoryUpdatePost, categoryDeleteGet, categoryDeletePost };

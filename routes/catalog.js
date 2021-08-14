@@ -6,6 +6,7 @@ import {
   categoryDetail,
   categoryCreateGet,
   categoryCreatePost,
+  categoryCarListGet,
   categoryUpdateGet,
   categoryUpdatePost,
   categoryDeleteGet, categoryDeletePost } from '../controllers/categoryController.js';
@@ -31,6 +32,8 @@ router.post('/category/create', categoryCreatePost);
 
 router.get('/category/:id/update', categoryUpdateGet);
 router.post('/category/:id/update', categoryUpdatePost);
+
+router.get('/category/:id/cars', categoryCarListGet);
 
 router.get('/category/:id/delete', categoryDeleteGet);
 router.post('/category/:id/delete', categoryDeletePost);
