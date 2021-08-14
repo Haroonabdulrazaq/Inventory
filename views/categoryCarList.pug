@@ -3,9 +3,23 @@ extends layout
 block content
   .container
     h2 #{title}
-    .category-cars
-      each car in cars
-        .cars-category
-          div 
-            h3 #{car.name} 
-          div #{car.description}
+    if cars.length
+      .category-cars
+        each car in cars
+          .cars-category
+            div 
+              h3 #{car.name}
+            div #{car.description}
+            span.cancel.see-detail
+              a.active(href=car.url) See detail
+    else
+      .delete-category
+        p #[strong There is no car for this category yet]
+          .delete-btn
+            span.cancel
+              a.active(href='/catalog/car/create') Create Car
+    span.cancel.back(onclick='goBack()') Back
+    script.
+      function goBack() {
+        window.history.back();
+      }

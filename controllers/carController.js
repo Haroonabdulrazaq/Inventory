@@ -3,7 +3,7 @@ import { body, validationResult } from "express-validator";
 import { Category } from '../models/category.model.js';
 
 const carList = (req, res) => {
-  res.send('Car List');
+  res.render('carList', { title: 'All Cars' });
 };
 
 const carDetail = (req, res) => {
@@ -45,7 +45,7 @@ const carCreatePost = (req, res, next) => {
       numberInStock: req.body.numberInStock,
       description: req.body.description,
       category: req.body.category,
-      image: req.file.originalname,
+      image: req.body.image,
     });
 
     if (!errors.isEmpty()) {

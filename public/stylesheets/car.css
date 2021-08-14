@@ -29,3 +29,12 @@ input[type=submit]:hover {
 .container .form {
   width: 50%;
 }
+
+/*  Car Detail */
+
+.car-detail {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  border: 1px solid chartreuse;
+}

@@ -18,4 +18,9 @@ block content
             input(type='submit' value='Delete' style='background: red')
             span.cancel
               a.active(href=category.url) Cancel
+    span.cancel.back(onclick='goBack()') Back
+    script.
+      function goBack() {
+      window.history.back();
+      }
             

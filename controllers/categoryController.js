@@ -74,7 +74,6 @@ const categoryCreatePost = (req, res, next) => {
 const categoryCarListGet =(req, res) => {
   Car.find({ category: req.params.id })
     .exec((err, foundCars) => {
-      console.log(foundCars);
       if (err) {
         throw new err;
       }

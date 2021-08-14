@@ -8,3 +8,9 @@ block content
       label(for='description') Description
       textarea#description(name='description' placeholder='Description' style='height:200px') #{category===undefined? '': category.description} 
       input(type='submit' value='Submit')
+
+    span.cancel.back(onclick='goBack()') Back
+    script.
+      function goBack() {
+      window.history.back();
+      }
