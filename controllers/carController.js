@@ -13,8 +13,13 @@ const carList = (req, res, next) => {
     })
 };
 
-const carDetail = (req, res) => {
-  res.render('carDetail', { title: 'Car Detail' });
+const carDetail = (req, res, next) => {
+  Car.findById(req.params.id)
+    .populate('category')
+    .exec((err, foundCar) => {
+      if (err) { return next(err) }
+      res.render('carDetail', { title: 'Car Detail', car: foundCar });
+    })
 };
 
 const carCreateGet = (req, res, next) => {
@@ -30,7 +35,6 @@ const carCreateGet = (req, res, next) => {
 };
 
 const carCreatePost = (req, res, next) => {
-  // res.send('Car Create Post');
   body('name')
     .isLength({min: 3, max: 25}).withMessage('Name should be greater than 3 and lass than 25')
     .trim()
@@ -79,7 +83,7 @@ const carCreatePost = (req, res, next) => {
 };
 
 const carUpdateGet = (req, res) => {
-  res.render('CarForm', {title: 'Update Car Detail'});
+  res.render('carForm', {title: 'Update Car Detail'});
 };
 
 const carUpdatePost = (req, res) => {

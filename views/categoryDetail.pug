@@ -8,6 +8,7 @@ block content
         .detail-wrapper-top
           h3.cat-name #{category.name} 
           div.cat-description #{category.description} 
+          span.see-category #{category.formatDate}
       .detail-links
         .detail-parent-link
           a.detail-link(href=category._id+'/update')

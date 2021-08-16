@@ -21,4 +21,12 @@ CarSchema
     return '/catalog/car/'+this._id
   });
 
+  CarSchema
+    .virtual('formatDate')
+    .get(function() {
+      let myDate = new Date(this.date)
+      myDate = myDate.toString().split('GMT')[0];
+      return myDate;
+    })
+
 export const Car = mongoose.model('Car', CarSchema);

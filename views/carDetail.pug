@@ -3,4 +3,27 @@ extends layout
 block content 
   .container
     h2 #{title}
-    .car-detail
+    .car-wrapper
+      .car-detail
+        .car-image
+          img(src=car.image  alt=car.name style='width:100%; height: auto;')
+          .car-title
+            h3 #{car.name}
+        .car-info
+          .car-top
+            span.see-info Number In Stock: #{car.numberInStock}
+            span.see-info Model: #{car.model}
+            span.see-info  #{car.category.name}
+          .car-description #{car.description}
+          .car-bottom
+            span.see-info #{car.formatDate}
+            span.see-info Price: $#{car.price}
+      .car-links
+        .detail-parent-link
+          a.detail-link(href='/catalog/car/'+car._id+'/update')
+            i.fa.fa-pencil(title="Update Car")
+          p  Update
+        .detail-parent-link
+          a.detail-link(href='/catalog/car/'+car._id+'/delete')
+            i.fa.fa-trash-o(title="Delete Car")
+          p  Delete

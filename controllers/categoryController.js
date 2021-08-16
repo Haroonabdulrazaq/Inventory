@@ -75,7 +75,6 @@ const categoryCarListGet =(req, res) => {
   Car.find({ category: req.params.id })
     .populate('category')
     .exec((err, foundCars) => {
-      console.log('I am here',foundCars)
       if (err) {
         throw new err;
       }
