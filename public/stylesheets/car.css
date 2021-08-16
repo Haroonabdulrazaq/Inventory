@@ -110,6 +110,7 @@ input[type=submit]:hover {
 .see-info {
   padding: 0.5em;
   box-shadow: 1px 1px 15px #aaa;
+  cursor: auto;
 }
 
 .car-description {
@@ -146,4 +147,64 @@ input[type=submit]:hover {
 .car-links p {
   font-size: 1em;
   color: white;
+}
+
+
+@media screen and (max-width: 800px) {
+  .car-wrapper {
+    flex-direction: column;
+  }
+  
+  .car-detail {
+    width: 70%;
+    min-height: 100vh;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 1em;
+  }
+
+  .car-image {
+    width: 100%;
+    height: 30vh;
+  }
+
+  .car.image-tag {
+    height: 50%;
+  }
+
+  .car-title {
+    width: 100%;
+    height: 100%;
+  }
+
+  .car-info {
+    width: 100%;
+    height: 30vh;
+  }
+
+  .car-links {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+    min-height: 10vh;
+    height: auto;
+    flex-direction: row;
+  }
+    
+}
+
+@media screen and (max-width: 500px) {
+  .car-description {
+    padding: 0;
+  }
+
+  .car-top {
+    padding: 0;
+  }
+
+  .see-info {
+    font-size: 0.8em;
+    padding: 0.2em;
+  }
 }

@@ -124,7 +124,6 @@ const categoryUpdatePost = (req, res, next) => {
 }
 
 const categoryDeleteGet = (req, res, next) => {
-  // res.send('Category Delete Get')
   async.parallel({
     category: (callback) => {
       Category.findById(req.params.id)

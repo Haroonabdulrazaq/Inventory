@@ -30,3 +30,6 @@ CarSchema
     })
 
 export const Car = mongoose.model('Car', CarSchema);
+
+
+// Ferari https://image.cnbcfm.com/api/v1/image/101242908-front-jpg-[2]r.jpg?v=1386700473&w=630&h=354

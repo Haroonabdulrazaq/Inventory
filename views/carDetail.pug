@@ -6,7 +6,7 @@ block content
     .car-wrapper
       .car-detail
         .car-image
-          img(src=car.image  alt=car.name style='width:100%;  min-height: 100%; height: auto;')
+          img.car.image-tag(src=car.image  alt=car.name style='width:100%; min-height: 100%')
           .car-title
             h3 #{car.name}
         .car-info
@@ -27,3 +27,8 @@ block content
           a.detail-link(href='/catalog/car/'+car._id+'/delete')
             i.fa.fa-trash-o(title="Delete Car")
           p  Delete
+    span.cancel.back(onclick='goBack()') Back
+    script.
+      function goBack() {
+        window.history.back();
+      }

@@ -1,3 +1,4 @@
+import async from 'async';
 import { Car } from '../models/car.model.js';
 import { body, validationResult } from "express-validator";
 import { Category } from '../models/category.model.js';
@@ -82,12 +83,58 @@ const carCreatePost = (req, res, next) => {
 
 };
 
-const carUpdateGet = (req, res) => {
-  res.render('carForm', {title: 'Update Car Detail'});
+const carUpdateGet = (req, res, next) => {
+  async.parallel ({
+    car: (callback) => {
+          Car.findById(req.params.id)
+             .exec(callback)
+    },
+    categories: (callback) => {
+        Category.find({}, '_id name')
+          .exec(callback)
+    }
+  }, (err, results) => {
+    if (err) { return next(err) }
+    res.render('carForm', {title: 'Update Car Detail', car: results.car, categories: results.categories });
+  })
 };
 
-const carUpdatePost = (req, res) => {
-  res.send('Car Update Post');
+const carUpdatePost = (req, res, next) => {
+  body('name')
+    .isLength({min: 3, max: 25}).withMessage('Name should be greater than 3 and lass than 25')
+    .trim()
+    .escape().required
+  body('description')
+    .isLength({min: 10, max: 255}).withMessage('Name should be greater than 3 and lass than 25')
+    .trim()
+    .escape().required
+  body('model').required
+  body('price').required
+  body('numberInStock').required
+
+  const errors = validationResult(req);
+
+  const car = new Car ({
+    _id: req.params.id,
+    name: req.body.name,
+    model: req.body.model,
+    price: req.body.price,
+    numberInStock: req.body.numberInStock,
+    description: req.body.description,
+    category: req.body.category,
+    image: req.body.image,
+  })
+
+  if (!errors.isEmpty()) {
+    res.render('carForm', { title: 'Update Car', car, errors: errors.array() });
+    return;
+  }
+
+  Car.findByIdAndUpdate(req.params.id, car, {}, (err, foundCar) => {
+    console.log('I reach here', foundCar)
+    if (err) { return next(err) }
+    res.redirect(foundCar.url)
+  })
 };
 
 const carDeleteGet = (req, res) => {
