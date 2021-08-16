@@ -27,6 +27,7 @@ a {
   min-height: 100vh;
   height: auto;
   overflow: auto;
+  text-align: left;
 }
 
 .sidebar a {
@@ -34,7 +35,7 @@ a {
   color: black;
   font-size: 1.2em;
   padding: 16px 10px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 }
  
