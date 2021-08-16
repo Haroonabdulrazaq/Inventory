@@ -17,7 +17,8 @@ import {
     carCreatePost,
     carUpdateGet,
     carUpdatePost,
-    carDeleteGet, carDeletePost } from '../controllers/carController.js';
+    // carDeleteGet,
+    carDeletePost } from '../controllers/carController.js';
 
 const router = Router();
 const upload = multer({ dest: 'uploads/' })
@@ -50,7 +51,7 @@ router.post('/car/create',  upload.single('image'), carCreatePost);
 router.get('/car/:id/update', carUpdateGet);
 router.post('/car/:id/update', carUpdatePost);
 
-router.get('/car/:id/delete', carDeleteGet);
+// router.get('/car/:id/delete', carDeleteGet);
 router.post('/car/:id/delete', carDeletePost);
 
 router.get('/car/:id', carDetail);

@@ -10,7 +10,7 @@ const carList = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      res.render('categoryCarList', { title: 'All Cars', cars: foundCars });
+      res.render('categoryCarList', { title: 'All Cars', cars: foundCars.reverse() });
     })
 };
 
@@ -137,12 +137,19 @@ const carUpdatePost = (req, res, next) => {
   })
 };
 
-const carDeleteGet = (req, res) => {
-  res.send('Car Delete Get');
-};
+// const carDeleteGet = (req, res) => {
+//   res.send('Car Delete Get');
+// };
 
-const carDeletePost = (req, res) => {
-  res.send('Car Delete Post');
+const carDeletePost = (req, res, next) => {
+  Car.findByIdAndDelete(req.params.id)
+    .exec((err) => {
+      if (err) {
+        return next(err)
+      }
+      res.redirect('/catalog/cars')
+    })
+
 };
 
 export {
@@ -152,4 +159,5 @@ export {
   carCreatePost,
   carUpdateGet,
   carUpdatePost,
-  carDeleteGet, carDeletePost };
+  // carDeleteGet,
+  carDeletePost };

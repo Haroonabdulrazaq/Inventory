@@ -24,11 +24,34 @@ block content
             i.fa.fa-pencil(title="Update Car")
           p  Update
         .detail-parent-link
-          a.detail-link(href='/catalog/car/'+car._id+'/delete')
+          a.detail-link( onclick='popUp()')
             i.fa.fa-trash-o(title="Delete Car")
           p  Delete
-    span.cancel.back(onclick='goBack()') Back
-    script.
-      function goBack() {
-        window.history.back();
+  //- Delete Modal
+  #id01.modal
+    span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') &times;
+    form.modal-content(method= 'POST' action=car.url+'/delete')
+      .delete-container
+        h1 Delete Account
+        p Are you sure you want to delete your account?
+        .clearfix
+          button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'")
+            a(href=car.url style='color: white') Cancel
+          button.deletebtn(type='submit' onclick="document.getElementById('id01').style.display='none'") Delete
+  span.cancel.back(onclick='goBack()') Back
+  script.
+    function goBack() {
+      window.history.back();
+    }
+    function popUp() {
+      document.getElementById('id01').style.display='block'
+    }
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
       }
