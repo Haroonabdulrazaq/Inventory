@@ -10,6 +10,8 @@ block content
             div 
               h3 #{car.name}
             div #{car.description}
+            span.see-category
+              a.active #{car.category.name}
             span.cancel.see-detail
               a.active(href=car.url) See detail
     else

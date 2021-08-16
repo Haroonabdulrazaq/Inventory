@@ -234,7 +234,7 @@
 
 .cars-category {
   width: 80%;
-  margin: 0 auto;
+  margin: 1.5em auto;
   padding: 1em;
   border-radius: 5px;
   min-height: 50vh;
@@ -254,7 +254,6 @@
 
 .cars-category div:nth-child(2) {
   text-align: left;
-
 }
 
 .see-detail {
@@ -263,6 +262,17 @@
   right: 20px;
   padding: 0.5em 1em;
   box-shadow: 1px 2px 15px #aaa;
+}
+
+.see-category {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.5em 1em;
+  box-shadow: 1px 1px 15px #aaa;
+  /* box-shadow:  -2px -2px 6px #bebebe,
+             2px 2px 6px #ffffff; */
+  cursor: auto;
 }
 
 .see-detail:hover {

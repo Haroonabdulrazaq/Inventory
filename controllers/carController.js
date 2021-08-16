@@ -2,8 +2,15 @@ import { Car } from '../models/car.model.js';
 import { body, validationResult } from "express-validator";
 import { Category } from '../models/category.model.js';
 
-const carList = (req, res) => {
-  res.render('carList', { title: 'All Cars' });
+const carList = (req, res, next) => {
+  Car.find({})
+  .populate('category')
+    .exec((err, foundCars) => {
+      if (err) {
+        return next(err);
+      }
+      res.render('categoryCarList', { title: 'All Cars', cars: foundCars });
+    })
 };
 
 const carDetail = (req, res) => {
