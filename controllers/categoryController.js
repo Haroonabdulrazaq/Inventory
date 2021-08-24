@@ -7,7 +7,7 @@ const catalogController = (req, res, next) => {
   Category.find()
     .exec(function(err, categories) {
       if (err) { return next(err) }
-      res.render('catalog', { title: "All Categories", categories: categories })
+      res.render('catalog', { title: "Available Categories", categories: categories })
     })
 }
 

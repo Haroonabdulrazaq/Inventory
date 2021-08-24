@@ -32,6 +32,17 @@ block content
         p
           b We have a lot for you, Let us know your taste 
           a(href="https://unsplash.com/s/photos/cars" target="_blank" style="color: white, text-decoration: underline") (image by unsplash)
+    .categories-wrapper(style='margin-bottom: 0em')
+      h1(style='padding-top: 1.5em') #{title}
+      div.category-container
+        each category in categories
+          .category
+            h3
+              a(href=category.url) #{category.name}
+            description #{category.description}
+            .read-more
+              hr
+              a(href=category.url) Read more
     .homepage-contact
       .hompage-contact-text
         h2 CONTACT
