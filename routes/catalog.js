@@ -17,6 +17,7 @@ import {
     carCreatePost,
     carUpdateGet,
     carUpdatePost,
+    carCheckout,
     carDeletePost } from '../controllers/carController.js';
 
 const router = Router();
@@ -49,7 +50,7 @@ router.post('/car/create', carCreatePost);
 router.get('/car/:id/update', carUpdateGet);
 router.post('/car/:id/update', carUpdatePost);
 
-// router.get('/car/:id/delete', carDeleteGet);
+router.get('/car/:id/checkout', carCheckout);
 router.post('/car/:id/delete', carDeletePost);
 
 router.get('/car/:id', carDetail);

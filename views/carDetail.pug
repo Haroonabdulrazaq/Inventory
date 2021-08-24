@@ -27,7 +27,11 @@ block content
           a.detail-link( onclick='popUp()')
             i.fa.fa-trash-o(title="Delete Car")
           p  Delete
-  //- Delete Modal
+        .detail-parent-link
+          a.detail-link(href='/catalog/car/'+car._id+'/checkout')
+            i.fa.fa-shopping-cart(title="Checkout")
+          p  Checkout
+  //- Delete Modal 
   #id01.modal
     span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') &times;
     form.modal-content(method= 'POST' action=car.url+'/delete')

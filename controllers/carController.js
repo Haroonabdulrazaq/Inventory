@@ -3,6 +3,9 @@ import { Car } from '../models/car.model.js';
 import { body, validationResult } from "express-validator";
 import { Category } from '../models/category.model.js';
 
+const carCheckout = (req, res) => {
+  res.render('carCheckout', { title: "Checkout Form" })
+};
 const carList = (req, res, next) => {
   Car.find({})
   .populate('category')
@@ -159,5 +162,5 @@ export {
   carCreatePost,
   carUpdateGet,
   carUpdatePost,
-  // carDeleteGet,
+  carCheckout,
   carDeletePost };

@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  .content 
+    h2 #{title}
+    .row
+      .col-75
+        .checkout-container
+          form(method= 'GET' action='/catalog/cars')
+            .row
+              .col-50
+                h3 Billing Address
+                label.checkout-label(for='fname')
+                  i.fa.fa-user
+                  |  Full Name
+                input.checkout-input#fname(type='text' name='firstname' placeholder='John M. Doe')
+                label.checkout-label(for='email')
+                  i.fa.fa-envelope
+                  |  Email
+                input.checkout-input#email(type='text' name='email' placeholder='john@example.com')
+                label.checkout-label(for='adr')
+                  i.fa.fa-address-card-o
+                  |  Address
+                input.checkout-input#adr(type='text' name='address' placeholder='542 W. 15th Street')
+                label.checkout-label(for='city')
+                  i.fa.fa-institution
+                  |  City
+                input.checkout-input#city(type='text' name='city' placeholder='New York')
+                .row
+                  .col-50
+                    label.checkout-label(for='state') State
+                    input.checkout-input#state(type='text' name='state' placeholder='NY')
+                  .col-50
+                    label.checkout-label(for='zip') Zip
+                    input.checkout-input#zip(type='text' name='zip' placeholder='10001')
+              .col-50
+                h3 Payment
+                label(for='fname') Accepted Cards
+                .icon-container
+                  i.fa.fa-cc-visa(style='color:navy;')
+                  i.fa.fa-cc-amex(style='color:blue;')
+                  i.fa.fa-cc-mastercard(style='color:red;')
+                  i.fa.fa-cc-discover(style='color:orange;')
+                label(for='cname') Name on Card
+                input#cname(type='text' name='cardname' placeholder='John More Doe')
+                label(for='ccnum') Credit card number
+                input#ccnum(type='text' name='cardnumber' placeholder='1111-2222-3333-4444')
+                label(for='expmonth') Exp Month
+                input#expmonth(type='text' name='expmonth' placeholder='September')
+                .row
+                  .col-50
+                    label(for='expyear') Exp Year
+                    input#expyear(type='text' name='expyear' placeholder='2018')
+                  .col-50
+                    label(for='cvv') CVV
+                    input#cvv(type='text' name='cvv' placeholder='352')
+            label
+            input(type='checkbox' checked='checked' name='sameadr')
+            |  Shipping address same as billing
+            input.checkout-btn(type="submit" value='Continue to checkout' onclick='checkout()')
+
+  script.
+    function checkout() {
+      e.preventDefault()
+      console.log("Hello checkout")
+    }
