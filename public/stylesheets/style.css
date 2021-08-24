@@ -60,6 +60,11 @@ div.content {
   height: auto;
 }
 
+div.homepage {
+  padding: 0px;
+  margin: 0px;
+}
+
 i {
 font-weight: bolder;  
   padding: 5px;

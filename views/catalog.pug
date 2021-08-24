@@ -1,4 +1,49 @@
 extends layout
 block content
-  .content 
-    h2 Hello Catalog
+  .content.homepage
+    .mySlides 
+      img(src='https://cdn.images.express.co.uk/img/dynamic/24/590x/Car-finance-and-lease-deals-919951.jpg' )
+      .display-text
+        a.active.deal-btn(href="/catalog/cars") Let's Deal
+        h3 Make a Deal
+        p
+          b The best Deal you can get!
+    .mySlides 
+      img(src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' )
+      .display-text
+        a.active.deal-btn(href="/catalog/cars") Let's Deal
+        h3 Blue Cheverolet Coupe
+        p
+          b We had the best time playing at Venice Beach! 
+          a(href="https://unsplash.com/s/photos/cars" target="_blank" style="color: white, text-decoration: underline") (image by unsplash)
+    .mySlides
+      img(src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhcnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+      .display-text
+        a.active.deal-btn(href="/catalog/cars") Let's Deal
+        h3 2016 Mustang Gt
+        p
+          b Incredibly faster than the base model mustang which will be limited to just 120 mph 
+          a(href="https://unsplash.com/s/photos/cars" target="_blank" style="color: white, text-decoration: underline") (image by unsplash)
+    .mySlides
+      img(src='https://images.unsplash.com/photo-1619976160037-9a5277000127?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjZ8fGNhcnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+      .display-text
+        a.active.deal-btn(href="/catalog/cars") Let's Deal
+        h3 Get yours now!
+        p
+          b We have a lot for you, Let us know your taste 
+          a(href="https://unsplash.com/s/photos/cars" target="_blank" style="color: white, text-decoration: underline") (image image by unsplash)
+  script.
+    var myIndex = 0;
+    carousel();
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 4000);
+    }
+    
