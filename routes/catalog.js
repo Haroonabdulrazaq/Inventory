@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import multer from 'multer';
 import {
   catalogController,
   categoryList,
@@ -10,6 +9,7 @@ import {
   categoryUpdateGet,
   categoryUpdatePost,
   categoryDeleteGet, categoryDeletePost } from '../controllers/categoryController.js';
+
   import {
     carList,
     carDetail,
@@ -17,11 +17,9 @@ import {
     carCreatePost,
     carUpdateGet,
     carUpdatePost,
-    // carDeleteGet,
     carDeletePost } from '../controllers/carController.js';
 
 const router = Router();
-const upload = multer({ dest: 'uploads/' })
 
 router.get('/', catalogController);
 
@@ -46,7 +44,7 @@ router.get('/category/:id', categoryDetail);
 router.get('/cars', carList);
 
 router.get('/car/create', carCreateGet);
-router.post('/car/create',  upload.single('image'), carCreatePost);
+router.post('/car/create', carCreatePost);
 
 router.get('/car/:id/update', carUpdateGet);
 router.post('/car/:id/update', carUpdatePost);

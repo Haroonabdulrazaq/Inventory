@@ -3,8 +3,12 @@ import async from 'async';
 import { Category } from "../models/category.model.js";
 import { Car } from "../models/car.model.js";
 
-const catalogController = (req, res) => {
-  res.render('catalog', {title: 'Hello catalog Controller'});
+const catalogController = (req, res, next) => {
+  Category.find()
+    .exec(function(err, categories) {
+      if (err) { return next(err) }
+      res.render('catalog', { title: "All Categories", categories: categories })
+    })
 }
 
 const categoryList = (req, res, next) => {

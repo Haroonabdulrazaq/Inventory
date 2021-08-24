@@ -2,11 +2,12 @@
   position: relative;
   top: 0;
   left: 0;
-  height: 100%;
+  min-height: 90vh;
   height: auto;
   animation: slide;
-  animation-duration: 0.8s;
-  animation-delay: 3.2s;
+  animation-duration: 0.5s;
+  animation-delay: 3.5s;
+  animation-direction: alternate;
 }
 
 @keyframes slide {
@@ -16,9 +17,10 @@
 
 img {
   width: 100%;
-  min-height: 90vh; 
-  max-height: 90vh; 
-  height: auto;
+  /* min-height: 90vh; 
+  max-height: 90vh;  */
+  height: 100%;
+  /* height: auto; */
   position: absolute;
   top: 0;
   left: 0;
@@ -26,8 +28,7 @@ img {
 
 .display-text {
   width: 100%;
-  min-height: 90vh;
-  height: inherit;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -47,6 +48,7 @@ img {
   margin: 0 auto;
   color: white;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .deal-btn:hover {
@@ -63,3 +65,76 @@ img {
 }
 
 
+.homepage-title {
+  color: black;
+  border: 1px solid chartreuse;
+}
+
+.homepage-contact {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hompage-contact-text {
+  width: 50%;
+}
+
+.homepage-form {
+  width: 50%;
+  padding: 1em 1.5em;
+}
+
+.homepage-form  input{
+  width: 100%;
+  /* margin: 0 auto; */
+}
+
+.w3-half {
+  width: 50%;
+  display: inline-block;
+  padding: 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .mySlides {
+    min-height: 70vh;
+    height: auto;
+  }
+  .deal-btn {
+    margin-bottom: 30px;
+  }
+  .display-text h3{
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 1.5em;
+  }
+
+  .display-text p{
+    font-size: 1em;
+  }
+  .homepage-contact {
+    flex-direction: column;
+  }
+  .hompage-contact-text {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .homepage-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em 1.5em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mySlides {
+    min-height: 50vh;
+    height: auto;
+  }
+  .deal-btn {
+    margin-bottom: 10px;
+  }
+}
