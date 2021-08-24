@@ -98,6 +98,20 @@ img {
   padding: 2px;
 }
 
+.homepage-footer{
+  text-align: center;
+  padding:1.5em  0;
+} 
+
+.homepage-footer i {
+  cursor: pointer;
+  font-size: large;
+} 
+
+.homepage-footer i:hover{
+  opacity: 0.8;
+} 
+
 @media screen and (max-width: 800px) {
   .mySlides {
     min-height: 70vh;
