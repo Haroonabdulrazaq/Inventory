@@ -17,15 +17,33 @@ html
     //- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous')
     block content
     .sidebar
-      a.active(href='/catalog') CAR DEAL
-        i.fa.fa-usd
-      a(href='/catalog') Home
-        i.fa.fa-fw.fa-home
-      a(href='/catalog/categories') Categories
-        i.fa.fa-check-square
-      a(href='/catalog/cars') Cars
-        i.fa.fa-car
-      a(href='/catalog/category/create') Create Category
-        i.fa.fa-plus-square
-      a(href='/catalog/car/create') Create Car
-       i.fa.fa-plus-circle
+      .active.active-homepage
+        a.active(href='/catalog') CAR DEAL
+          i.fa.fa-usd
+        .hamburger
+          i.fa.fa-bars(onclick='navToggle()')
+      .nav
+        a.nav-link(href='/catalog') Home
+          i.fa.fa-fw.fa-home
+        a.nav-link(href='/catalog/categories') Categories
+          i.fa.fa-check-square
+        a.nav-link(href='/catalog/cars') Cars
+          i.fa.fa-car
+        a.nav-link(href='/catalog/category/create') Create Category
+          i.fa.fa-plus-square
+        a.nav-link(href='/catalog/car/create') Create Car
+          i.fa.fa-plus-circle
+    script.
+      let counter = 0;
+      const navLink = document.querySelector('.nav')
+        function navToggle() {
+          console.log(counter)
+          if (counter%2 === 0) {
+            navLink.classList.remove('none')
+            navLink.classList.add('block')
+          } else {
+            navLink.classList.remove('block')
+            navLink.classList.add('none')
+          }
+            counter++;
+        }
