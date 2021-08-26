@@ -64,13 +64,10 @@ img {
   padding-bottom: 15px;
 }
 
-
-.homepage-title {
-  color: black;
-  border: 1px solid chartreuse;
-}
-
 .homepage-contact {
+  background: #000;
+  opacity: 0.8;
+  color: white;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -89,7 +86,6 @@ img {
 
 .homepage-form  input{
   width: 100%;
-  /* margin: 0 auto; */
 }
 
 .w3-half {
