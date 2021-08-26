@@ -48,6 +48,7 @@ const carCreatePost = (req, res, next) => {
     .trim()
     .escape().required
   body('model').required
+  body('image').trim().escape().required
   body('price').required
   body('numberInStock').required
 

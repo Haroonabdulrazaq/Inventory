@@ -39,6 +39,9 @@ const categoryCreatePost = (req, res, next) => {
   .trim()
   .escape()
   .required
+  body('image')
+  .trim()
+  .escape()
   body('description')
   .isLength({ min: 10, max: 255 })
   .trim()
@@ -49,6 +52,7 @@ const categoryCreatePost = (req, res, next) => {
 
   const category = new Category({
     name: req.body.name,
+    image: req.body.image,
     description: req.body.description
   })
 
@@ -102,6 +106,9 @@ const categoryUpdatePost = (req, res, next) => {
   .trim()
   .escape()
   .required
+  body('image')
+  .trim()
+  .escape().required
   body('description')
   .isLength({ min: 10, max: 255 })
   .trim()
@@ -113,6 +120,7 @@ const categoryUpdatePost = (req, res, next) => {
   const category = new Category ({
     _id: req.params.id,
     name: req.body.name,
+    image: req.body.image,
     description: req.body.description
   })
 

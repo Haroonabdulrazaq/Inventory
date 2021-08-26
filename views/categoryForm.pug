@@ -6,7 +6,7 @@ block content
       label(for='name') Category Name*
       input#name(type='text' name='name' value=(category===undefined? '': category.name) placeholder='Category name..' required)
       label(for='image') Category image (url)
-      input#image(type='url' name='image' value=(category===undefined? '': category.image) placeholder='https://p.kindpng.com/')
+      input#image(type='url' name='image' value=(category===undefined? '': category.image) placeholder='https://p.kindpng.com/' required)
       label(for='description') Description
       textarea#description(name='description' placeholder='Description' style='height:200px') #{category===undefined? '': category.description} 
       input(type='submit' value='Submit')
