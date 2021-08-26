@@ -4,17 +4,17 @@ block content
   .container
     h2 #{title}
     form.form(method='POST' action='')
-      label(for='name') Car Name
+      label(for='name') Car Name*
       input#name(type='text' name='name' value=(car === undefined ? '' : car.name) placeholder='Car name..' required)
-      label(for='model') Model Number / Year
+      label(for='model') Model Number / Year*
       input#model(type='number' name='model' value=(car === undefined ? '' : car.model) placeholder='2021' required)
-      label(for='price') Price
+      label(for='price') Price*
       input#price(type='number' name='price' value=(car === undefined ? '' : car.price) placeholder='10.58=$10.58' required)
-      label(for='stock') Number In Stock
+      label(for='stock') Number In Stock*
       input#stock(type='number' name='numberInStock' value=(car === undefined ? '' : car.numberInStock) placeholder='50' required)
       label(for='image') Upload Image url
       input#image(type='url' name='image' value=(car === undefined ? '' : car.image) placeholder='https://example.com' pattern='https://.*' size='30' required)
-      label(for='country') Category
+      label(for='country') Category*
       select#category(name='category')
         each category in categories
           option(value=category._id) #{category.name}

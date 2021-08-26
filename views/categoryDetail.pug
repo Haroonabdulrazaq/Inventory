@@ -6,7 +6,10 @@ block content
     .detail-container
       .detail-wrapper
         .detail-wrapper-top
-          h3.cat-name #{category.name} 
+          .car-image
+            img.car.image-tag(src=category.image  alt=category.name style='width:100%; min-height: 100%')
+          .car-title
+            h3 #{category.name}
           div.cat-description #{category.description} 
           span.see-category #{category.formatDate}
       .detail-links

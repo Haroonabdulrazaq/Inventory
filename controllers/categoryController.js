@@ -15,7 +15,7 @@ const categoryList = (req, res, next) => {
   Category.find()
     .exec(function(err, category) {
         if (err) { return next(err) }
-        res.render('categoryIndex', { title: "All Categories", categories: category })
+        res.render('categoryIndex', { title: "All Categories", categories: category.reverse() })
     })
 }
 

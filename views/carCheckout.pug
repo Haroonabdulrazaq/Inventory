@@ -6,7 +6,7 @@ block content
     .row
       .col-75
         .checkout-container
-          form(method= 'GET' action='/catalog/cars')
+          form(method='GET' action='/catalog/cars')
             .row
               .col-50
                 h3 Billing Address
@@ -35,7 +35,8 @@ block content
                     input.checkout-input#zip(type='text' name='zip' placeholder='10001')
               .col-50
                 h3 Payment
-                label(for='fname') Accepted Cards
+                label(for='fname') Accepted Cards 
+                  p (Please do not enter your real card information)
                 .icon-container
                   i.fa.fa-cc-visa(style='color:navy;')
                   i.fa.fa-cc-amex(style='color:blue;')

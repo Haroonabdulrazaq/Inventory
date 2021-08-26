@@ -33,7 +33,7 @@ const carCreateGet = (req, res, next) => {
       if (err) { 
         return next(err)
       } else {
-        res.render('carForm', {title: 'Create a Car', categories });
+        res.render('carForm', {title: 'Add a Car', categories });
       }
     })
 };

@@ -1,10 +1,12 @@
-extends layout 
+extends layout
 block content
   .container
     h1= title
     form.form(method='POST' action='')
-      label(for='name') Category Name
+      label(for='name') Category Name*
       input#name(type='text' name='name' value=(category===undefined? '': category.name) placeholder='Category name..' required)
+      label(for='image') Category image (url)
+      input#image(type='url' name='image' value=(category===undefined? '': category.image) placeholder='https://p.kindpng.com/')
       label(for='description') Description
       textarea#description(name='description' placeholder='Description' style='height:200px') #{category===undefined? '': category.description} 
       input(type='submit' value='Submit')
