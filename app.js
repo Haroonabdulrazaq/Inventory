@@ -3,6 +3,8 @@ import createError from 'http-errors';
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import compression from 'compression';
+import helmet from 'helmet';
 
 import { fileURLToPath } from 'url';
 import { join, dirname } from 'path';
@@ -20,6 +22,13 @@ import usersRouter from './routes/users.js';
 import catalogRouter from './routes/catalog.js';
 
 var app = express();
+
+// Compression -- Compress all routes
+app.use(compression())
+
+// Helmet -- Protect app from well know web vulnerability
+app.use(helmet())
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
