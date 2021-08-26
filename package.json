@@ -17,6 +17,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "express-validator": "^6.12.1",
     "helmet": "^4.6.0",
@@ -27,7 +28,6 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "nodemon": "^2.0.12"
   }
