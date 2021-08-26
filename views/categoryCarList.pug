@@ -7,9 +7,11 @@ block content
       .category-cars
         each car in cars
           .cars-category
-            div 
-              h3 #{car.name}
-            div #{car.description}
+            .car-image
+              img.car.image-tag(src=car.image  alt=car.name style='width:100%; min-height: 100%')
+              .car-title
+                h3 #{car.name}
+            div.cars-description #{car.description}
             span.see-category
               a.active #{car.category.name}
             span.cancel.see-detail
